@@ -40,7 +40,8 @@ pipeline {
             ])
         }
     }
-    
+  }
+
     post {
         always {
             mail to: "jonathan.camilo@oobj.com.br",
@@ -48,5 +49,4 @@ pipeline {
             body: "Your build completed, please check: ${env.BUILD_URL}"
         }
     }
-  }
 }
