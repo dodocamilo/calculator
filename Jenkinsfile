@@ -40,14 +40,17 @@ pipeline {
             ])
         }
     }
+	
+	stage("Package") {
+		steps {
+			sh "./gradlew build"
+		}
+	}
+	
+	stage("Docker build") {
+		steps {
+			sh "docker build -t dodocamilo/calculator"
+		}
+	}
   }
-/*
-    post {
-        always {
-            mail to: "jonathan.camilo@oobj.com.br",
-            subject: "Completed Pipeline: ${currentBuild.fullDisplayName}",
-            body: "Your build completed, please check: ${env.BUILD_URL}"
-        }
-    }
-*/
 }
