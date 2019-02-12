@@ -1,7 +1,12 @@
 pipeline {
-  agent {
-    label "master"
-  }
+    agent {
+        label "master"
+    }
+  
+    triggers {
+        pollSCM('* * * * *')
+    }
+
   stages {
     stage("Compile") {
         steps {
