@@ -49,7 +49,7 @@ pipeline {
 	
 	stage("Docker build") {
 		steps {
-			sh "docker build -t dodocamilo/calculator"
+			sh "docker build -t dodocamilo/calculator ."
 		}
 	}
   }
